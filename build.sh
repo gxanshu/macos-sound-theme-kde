@@ -114,7 +114,7 @@ generate_index_theme() {
     cat > "${OUTPUT_DIR}/index.theme" << 'THEME'
 [Sound Theme]
 Name=Big Sur
-Comment=macOS Big Sur Sound Theme for KDE Plasma
+Comment=macOS Big Sur Sound Theme for Linux
 Directories=stereo
 Example=theme-demo
 

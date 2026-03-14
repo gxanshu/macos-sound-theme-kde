@@ -1,17 +1,18 @@
-# macOS Big Sur Sound Theme for KDE Plasma
+# macOS Big Sur Sound Theme for Linux
 
-A complete macOS Big Sur sound theme for KDE Plasma that replaces every sound from the default Ocean sound theme with authentic macOS Big Sur sounds. Drop-in replacement — every single sound event covered by Ocean is included, no gaps.
+A complete macOS Big Sur sound theme for Linux desktops. Works with **KDE Plasma**, **GNOME**, and any desktop environment that follows the [freedesktop.org Sound Theme Spec](https://specifications.freedesktop.org/sound-theme-spec/latest/). Drop-in replacement for the default Ocean sound theme — every single sound event is covered, no gaps.
 
 ## Features
 
-- **Complete 1:1 replacement** for the default KDE Plasma Ocean sound theme — all 44 sound events covered
-- **Authentic macOS Big Sur sounds** including login, logout, notifications, errors, warnings, device connect/disconnect, trash, and more
+- **Complete 1:1 replacement** for the default KDE Plasma / GNOME sound theme — all 44 sound events covered
+- **Authentic macOS Big Sur sounds** including startup chime, notifications, errors, warnings, device connect/disconnect, trash, and more
+- **Works everywhere** — KDE Plasma, GNOME, Cinnamon, XFCE, and any freedesktop-compliant desktop
 - **Ready to use** — download from the [Releases](../../releases) page and install in seconds
-- **No ocean fallbacks** — every sound is sourced from macOS Big Sur
+- **No fallbacks** — every sound is sourced from macOS Big Sur
 
 ## Sound Mapping
 
-| KDE Sound Event | macOS Big Sur Sound |
+| Sound Event | macOS Big Sur Sound |
 |---|---|
 | Desktop Login | Startup Chime |
 | Desktop Logout | Poof (dock remove) |
@@ -40,13 +41,15 @@ A complete macOS Big Sur sound theme for KDE Plasma that replaces every sound fr
 1. Download the latest release archive from the [Releases](../../releases) page
 2. Extract it:
    ```sh
-   tar -xzf bigsur-sound-theme-kde.tar.gz
+   tar -xzf bigsur-sound-theme.tar.gz
    ```
 3. Copy to your local sounds directory:
    ```sh
    cp -r bigsur ~/.local/share/sounds/
    ```
-4. Open **System Settings → Sounds** and select **Big Sur**
+4. Select the theme:
+   - **KDE Plasma:** System Settings → Sounds → select **Big Sur**
+   - **GNOME:** install `dconf-editor`, navigate to `org.gnome.desktop.sound` and set `theme-name` to `bigsur`
 
 ## Build from Source
 
@@ -59,8 +62,8 @@ A complete macOS Big Sur sound theme for KDE Plasma that replaces every sound fr
 
 ```sh
 # Clone this repo
-git clone https://github.com/AnshumanMahato/macos-sound-theme-kde.git
-cd macos-sound-theme-kde
+git clone https://github.com/AnshumanMahato/bigsur-sound-theme-linux.git
+cd bigsur-sound-theme-linux
 
 # Check tools, clone source repos, and build
 make all
@@ -77,6 +80,12 @@ make build   # convert and assemble the theme
 make install    # copies to ~/.local/share/sounds/bigsur
 make uninstall  # removes it
 make clean      # deletes build output
+```
+
+### Validate
+
+```sh
+make test    # checks structure, file list, and audio format match
 ```
 
 ## Theme Structure
