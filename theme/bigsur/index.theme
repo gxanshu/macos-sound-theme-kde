@@ -1,0 +1,8 @@
+[Sound Theme]
+Name=Big Sur
+Comment=macOS Big Sur Sound Theme for KDE Plasma
+Directories=stereo
+Example=theme-demo
+
+[stereo]
+OutputProfile=stereo
