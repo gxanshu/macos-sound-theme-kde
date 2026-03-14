@@ -13,26 +13,27 @@ A complete macOS Big Sur sound theme for KDE Plasma that replaces every sound fr
 
 | KDE Sound Event | macOS Big Sur Sound |
 |---|---|
-| Desktop Login | Payment Success |
-| Desktop Logout | Swish |
+| Desktop Login | Startup Chime |
+| Desktop Logout | Poof (dock remove) |
 | Bell / System Bell | Glass / Ping |
-| Button Pressed | Tink |
+| Button Pressed | Pop |
+| Volume Change | Tink |
 | Dialog Error | Basso |
 | Dialog Warning | Blow |
 | Dialog Information | Bottle |
 | Dialog Question | Purr |
 | Notification / New Message | ReceivedMessage |
-| Message Sent | Mail Sent |
+| Message Sent | SentMessage (iMessage whoosh) |
 | Device Added | Volume Mount |
 | Device Removed | Volume Unmount |
-| Trash Empty | Empty Trash |
+| Trash Empty | Empty Trash (crumpling paper) |
 | Phone Incoming Call | Opening ringtone |
 | Completion Success | Burn Complete |
 | Completion Fail | Burn Failed |
 | Battery Low | Sosumi |
-| Power Plug / Unplug | Grab / Volume Unmount |
+| Power Plug / Unplug | Begin Record / End Record |
 | Game Over (Win/Lose) | Fanfare / Descent |
-| ...and 25 more | Full list in `build.sh` |
+| ...and 24 more | Full list in `build.sh` |
 
 ## Install from Release
 
