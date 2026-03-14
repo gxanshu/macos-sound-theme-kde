@@ -46,8 +46,8 @@ declare -A SOUND_MAP=(
     [button-pressed-modifier]="accessibility/Sticky-Keys-MODIFER.aif" # modifier key press
 
     # ── Login & logout ───────────────────────────────────────────────
-    [desktop-login]="system/payment_success.aif"                    # pleasant welcome chime
-    [desktop-logout]="alerts/Swish.caf"                             # swoosh departure
+    [desktop-login]="@sounds/mac-os-big-sur-startup.mp3"            # macOS Big Sur startup chime
+    [desktop-logout]="dock/poof_item_off_dock.aif"                  # poof disappear sound
     [service-login]="siri/jbl_confirm.caf"                          # Siri confirm = logged in
     [service-logout]="siri/jbl_cancel.caf"                          # Siri cancel = logged out
 
@@ -156,16 +156,25 @@ build() {
 
         total=$((total + 1))
 
-        # Check if we have a BigSur mapping for this sound
+        # Check if we have a mapping for this sound
         if [[ -n "${SOUND_MAP[$sound_name]+x}" ]]; then
-            local bigsur_src="${BIGSUR_DIR}/sounds/${SOUND_MAP[$sound_name]}"
-            if [[ -f "$bigsur_src" ]]; then
-                info "Converting: ${sound_name} <- BigSur: ${SOUND_MAP[$sound_name]}"
-                convert_sound "$bigsur_src" "$dst"
+            local mapping="${SOUND_MAP[$sound_name]}"
+            local src_file
+
+            # Paths starting with @ are relative to project root
+            if [[ "$mapping" == @* ]]; then
+                src_file="${SCRIPT_DIR}/${mapping#@}"
+            else
+                src_file="${BIGSUR_DIR}/sounds/${mapping}"
+            fi
+
+            if [[ -f "$src_file" ]]; then
+                info "Converting: ${sound_name} <- ${mapping}"
+                convert_sound "$src_file" "$dst"
                 from_bigsur=$((from_bigsur + 1))
                 continue
             else
-                warn "BigSur source missing: ${SOUND_MAP[$sound_name]}"
+                warn "Source missing: ${mapping}"
             fi
         fi
 
